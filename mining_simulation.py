@@ -53,18 +53,17 @@ def Simulate(alpha,gamma,N, seed):
             #Write a piece of code to change the required variables in each one.
             if r<=alpha:
                 # The selfish miners found a new block.
-                HiddenBlocks += 1
+                ChainLength += 1
                 state = 0
                 SelfishRevenue += 2
             elif r<=alpha+(1-alpha)*gamma:
                 # The honest miners mine on the selfish miners' block
-                ChainLength += 2
+                ChainLength += 1
                 SelfishRevenue += 1
                 state = 0
             else:
                 # The honest miners mine on their own block
                 ChainLength += 1
-                SelfishRevenue += 1
                 state = 0
 
         elif state==2:
